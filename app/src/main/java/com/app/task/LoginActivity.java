@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
             String password = passwordInput.getText().toString();
 
             if (TextUtils.isEmpty(username) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-                Toast.makeText(this, "Please enter both username, email and password", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please enter above all fields", Toast.LENGTH_SHORT).show();
             } else {
 //                startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 Intent in=new Intent(this,MainActivity.class);
