@@ -18,6 +18,26 @@ public class ProfileFragment extends Fragment {
     EditText emailInput, nameInput, phoneInput, addressInput;
     Button submitButton;
 
+    String username, email;
+    public static Fragment instance(String username,String email){
+    Fragment fra=new ProfileFragment();
+    Bundle bun=new Bundle();
+    bun.putString("username",username);
+    bun.putString("email",email);
+    fra.setArguments(bun);
+    return fra;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (getArguments() != null) {
+           username = getArguments().getString("username");
+           email = getArguments().getString("email");
+        }
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -31,17 +51,19 @@ public class ProfileFragment extends Fragment {
         addressInput = view.findViewById(R.id.input_address);
         submitButton = view.findViewById(R.id.btn_submit);
 
+        emailInput.setText(email);
+        nameInput.setText(username);
+
         submitButton.setOnClickListener(v -> {
             String email = emailInput.getText().toString();
             String name = nameInput.getText().toString();
             String phone = phoneInput.getText().toString();
             String address = addressInput.getText().toString();
 
-            if (TextUtils.isEmpty(email) || TextUtils.isEmpty(name)) {
-                Toast.makeText(getActivity(), "Email and Name are required", Toast.LENGTH_SHORT).show();
+            if (TextUtils.isEmpty(phone)||TextUtils.isEmpty(address)) {
+                Toast.makeText(getActivity(), "The fields are required", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(getActivity(), "Form Submitted Successfully", Toast.LENGTH_SHORT).show();
-                // Optionally: Save to SharedPreferences or send to server
             }
         });
 

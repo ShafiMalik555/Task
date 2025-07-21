@@ -10,6 +10,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNav;
+    String username, email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,10 +18,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNav = findViewById(R.id.bottom_navigation);
+
+        username =getIntent().getStringExtra("username");
+        email=getIntent().getStringExtra("email");
+
+        bottomNav.getMenu().findItem(R.id.nav_profile).setTitle(username);
+
         bottomNav.setOnItemSelectedListener(item -> {
             Fragment selectedFragment = null;
             if (item.getItemId() == R.id.nav_profile) {
-                selectedFragment = new ProfileFragment();
+                selectedFragment = ProfileFragment.instance(username,email);
             }
 
             if (selectedFragment != null) {

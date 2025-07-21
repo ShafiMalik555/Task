@@ -13,7 +13,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText usernameInput;
     EditText emailInput;
-    EditText  passwordInput;
+    EditText passwordInput;
     Button loginButton;
 
     @Override
@@ -34,7 +34,11 @@ public class LoginActivity extends AppCompatActivity {
             if (TextUtils.isEmpty(username) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                 Toast.makeText(this, "Please enter both username, email and password", Toast.LENGTH_SHORT).show();
             } else {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+//                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                Intent in=new Intent(this,MainActivity.class);
+                in.putExtra("username",username);
+                in.putExtra("Password",password);
+                startActivity(in);
                 finish();
             }
         });

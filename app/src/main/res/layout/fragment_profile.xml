@@ -1,32 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
         <LinearLayout
             android:orientation="vertical"
             android:padding="24dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
 
             <EditText
                 android:id="@+id/input_email"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:padding="12dp"/>
 
             <EditText
                 android:id="@+id/input_name"
                 android:hint="Name"
                 android:layout_marginTop="12dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:padding="12dp"/>
 
             <EditText
                 android:id="@+id/input_phone"
@@ -34,24 +38,26 @@
                 android:inputType="phone"
                 android:layout_marginTop="12dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:padding="12dp"/>
 
             <EditText
                 android:id="@+id/input_address"
                 android:hint="Address"
                 android:layout_marginTop="12dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:padding="12dp"/>
 
             <Button
                 android:id="@+id/btn_submit"
                 android:text="Submit"
                 android:layout_marginTop="24dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"/>
         </LinearLayout>
     </ScrollView>
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
