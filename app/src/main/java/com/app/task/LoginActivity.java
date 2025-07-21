@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         signup.setOnClickListener(v->{
-            Fragment fr=new signupfragment();
+            startActivity(new Intent(this, SignupActivity.class));
         });
 
     }
