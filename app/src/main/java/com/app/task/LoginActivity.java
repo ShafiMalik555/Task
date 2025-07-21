@@ -1,13 +1,16 @@
 package com.app.task;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -15,7 +18,9 @@ public class LoginActivity extends AppCompatActivity {
     EditText emailInput;
     EditText passwordInput;
     Button loginButton;
+    TextView signup;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         emailInput = findViewById(R.id.email);
         passwordInput = findViewById(R.id.password);
         loginButton = findViewById(R.id.btn_login);
+        signup=findViewById(R.id.signup);
 
         loginButton.setOnClickListener(v -> {
             String username = usernameInput.getText().toString();
@@ -42,5 +48,10 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        signup.setOnClickListener(v->{
+            Fragment fr=new signupfragment();
+        });
+
     }
 }
