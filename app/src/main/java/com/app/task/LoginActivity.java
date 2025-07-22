@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
 //                startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 Intent in=new Intent(this,MainActivity.class);
                 in.putExtra("username",username);
-                in.putExtra("Password",password);
+                in.putExtra("email",email);
                 startActivity(in);
                 finish();
             }
