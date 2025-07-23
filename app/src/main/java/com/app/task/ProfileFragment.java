@@ -64,6 +64,9 @@ public class ProfileFragment extends Fragment {
                 Toast.makeText(getActivity(), "The fields are required", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(getActivity(), "Form Submitted Successfully", Toast.LENGTH_SHORT).show();
+                requireActivity()
+                        .getSupportFragmentManager()
+                        .popBackStack();
             }
         });
 
