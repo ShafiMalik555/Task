@@ -75,6 +75,7 @@ public class SignupActivity extends AppCompatActivity {
                             } catch (IOException e) {
                                 e.printStackTrace();
                                Log.e("Error","Failed");
+
                             }
 //                            Toast.makeText(SignupActivity.this,"Bad request",Toast.LENGTH_SHORT).show();
                        }
