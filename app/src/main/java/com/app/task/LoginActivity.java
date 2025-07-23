@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
 
-           }
+            }
         });
 
         signup.setOnClickListener(v->{
