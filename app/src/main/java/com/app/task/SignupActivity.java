@@ -68,16 +68,16 @@ public class SignupActivity extends AppCompatActivity {
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
-//                        } else {
-//                            try {
-//                                String res=response.body().string();
-//                                Toast.makeText(SignupActivity.this, res, Toast.LENGTH_SHORT).show();
-//                            } catch (IOException e) {
-//                                e.printStackTrace();
-//                               Log.e("Error","Failed");
-//                            }
-                            Toast.makeText(SignupActivity.this,"Bad request",Toast.LENGTH_SHORT).show();
-                        }
+                        } else {
+                            try {
+                                String error=response.errorBody().string();
+                                Toast.makeText(SignupActivity.this, error, Toast.LENGTH_SHORT).show();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                               Log.e("Error","Failed");
+                            }
+//                            Toast.makeText(SignupActivity.this,"Bad request",Toast.LENGTH_SHORT).show();
+                       }
                     }
 
                     @Override
