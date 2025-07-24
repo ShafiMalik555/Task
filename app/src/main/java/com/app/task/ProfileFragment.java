@@ -87,6 +87,9 @@ public class ProfileFragment extends Fragment {
                             try {
                                 String sucess = response.body().string();
                                 Toast.makeText(getActivity(), sucess, Toast.LENGTH_SHORT).show();
+                                requireActivity()
+                                        .getSupportFragmentManager()
+                                        .popBackStack();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }

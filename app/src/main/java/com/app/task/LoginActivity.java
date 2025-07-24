@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText emailInput;
     EditText passwordInput;
     Button loginButton;
-    TextView signup;
+    TextView signup, forgott;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -40,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.password);
         loginButton = findViewById(R.id.btn_login);
         signup=findViewById(R.id.signup);
+        forgott=findViewById(R.id.forgot_password);
 
         loginButton.setOnClickListener(v -> {
             String username = usernameInput.getText().toString();
@@ -96,6 +97,10 @@ public class LoginActivity extends AppCompatActivity {
 
         signup.setOnClickListener(v->{
             startActivity(new Intent(this, SignupActivity.class));
+        });
+
+        forgott.setOnClickListener(v->{
+            startActivity(new Intent(this,EmailForgottActivity.class));
         });
 
     }
