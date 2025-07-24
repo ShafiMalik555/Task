@@ -52,7 +52,6 @@ public class SignupActivity extends AppCompatActivity {
                 Toast.makeText(this, "Password are Mismatch", Toast.LENGTH_SHORT).show();
             }
             else {
-                // Call API
                 User user = new User(username, email, password, repassword, Phone);
                 ApiService apiService = ApiClient.getClient().create(ApiService.class);
                 Call<ResponseBody> call = apiService.signup(user);
