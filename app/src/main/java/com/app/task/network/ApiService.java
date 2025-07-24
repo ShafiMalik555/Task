@@ -1,5 +1,6 @@
 package com.app.task.network;
 
+import com.app.task.Data.Form;
 import com.app.task.Data.User;
 
 import okhttp3.ResponseBody;
@@ -12,4 +13,6 @@ public interface ApiService {
     Call<ResponseBody> signup(@Body User user);
     @POST("/api/task/login")
     Call<ResponseBody> login(@Body User user);
+    @POST("api/task/update")
+    Call<ResponseBody> formsubmitting(@Body Form form);
 }

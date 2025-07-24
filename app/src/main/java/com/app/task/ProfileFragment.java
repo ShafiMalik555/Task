@@ -13,6 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.app.task.Data.Form;
+import com.app.task.network.ApiClient;
+import com.app.task.network.ApiService;
+
+import java.io.IOException;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ProfileFragment extends Fragment {
 
     EditText emailInput, nameInput, phoneInput, addressInput;
@@ -63,7 +74,38 @@ public class ProfileFragment extends Fragment {
             if (TextUtils.isEmpty(phone)||TextUtils.isEmpty(address)) {
                 Toast.makeText(getActivity(), "The fields are required", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getActivity(), "Form Submitted Successfully", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), "Form Submitted Successfully", Toast.LENGTH_SHORT).show();
+                Form form=new Form(username,email,phone,address);
+                ApiService api= ApiClient.getClient().create(ApiService.class);
+                Call<ResponseBody> call=api.formsubmitting(form);
+
+                call.enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response.isSuccessful()){
+
+                            try {
+                                String sucess = response.body().string();
+                                Toast.makeText(getActivity(), sucess, Toast.LENGTH_SHORT).show();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        else{
+                            try {
+                                String error=response.errorBody().string();
+                                Toast.makeText(getActivity(),error,Toast.LENGTH_SHORT).show();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Toast.makeText(getActivity(),t.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 
