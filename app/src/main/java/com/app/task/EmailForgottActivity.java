@@ -13,6 +13,8 @@ public class EmailForgottActivity extends AppCompatActivity {
     EditText email;
     Button send;
 
+    boolean otp=false;
+
     @Override
    protected void  onCreate(Bundle saBundle ){
         super.onCreate(saBundle);
